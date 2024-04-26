@@ -1,11 +1,53 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import registerBG from "../../images/register.svg"
+import { AuthContext } from './../../Providers/AuthProvider';
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+    const location = useLocation();
+    const { setUser, setLoading } = useContext(AuthContext);
     const [eyeCheck, setEyeCheck] = useState(false);
+    const { createUser } = useContext(AuthContext);
+    const naviGate = useNavigate();
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        if (password.length < 6) {
+            alert("Password should be at least 6 characters");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            alert("Password should have one uppercase character");
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            alert("Password should have at least one lowercase character.");
+            return;
+        }
+        createUser(email, password)
+            .then(res => {
+                updateProfile(res.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(
+                        () => { setUser({ ...res.user, displayName: name, photoURL: photo }); }
+                    )
+                e.target.reset();
+                setLoading(true);
+                naviGate(location?.state ? location.state : "/");
+                alert("User register successfully !!!");
+            })
+            .catch(err => {
+                alert("Invalid information or user already created !!!", err);
+            })
+    }
     return (
         <div className="bg-cover mb-[67px] flex items-center bg-center bg-no-repeat min-h-screen w-full" style={{ backgroundImage: `url(${registerBG})` }}>
             <div className='backdrop-blur-sm bg-base/30 w-full min-h-screen'>
@@ -16,7 +58,7 @@ const Register = () => {
                             <p className="py-6 text-sm md:text-base text-[#44483b]">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
                         <div data-aos="zoom-in" data-aos-duration="2000" className="card shrink-0 w-full max-w-sm md:w-1/2 shadow-2xl bg-base-100 border-2 border-[#657a42]">
-                            <form className="card-body">
+                            <form onSubmit={handleRegister} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>

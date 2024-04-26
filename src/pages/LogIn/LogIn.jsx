@@ -1,12 +1,64 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import loginBG from "../../images/logIn.svg"
+import { AuthContext } from "../../Providers/AuthProvider";
 const LogIn = () => {
+    const naviGate = useNavigate();
+    const location = useLocation();
     const [eyeCheck, setEyeCheck] = useState(false);
+    const { signInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const handleSignIn = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        if (password.length < 6) {
+            alert("Password should be at least 6 characters");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            alert("Password should have one uppercase character");
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            alert("Password should have at least one lowercase character");
+            return;
+        }
+        signInUser(email, password)
+            .then(res => {
+                e.target.reset();
+                naviGate(location?.state ? location.state : "/");
+                alert("Log In Successfully !!!");
+            })
+            .catch(err => {
+                alert("Invalid Email or Password !!!");
+            })
+    }
+    const handleGoogleSignIn = (e) => {
+        e.preventDefault();
+        signInWithGoogle()
+            .then(res => {
+                alert("Log In Successfully !!!");
+                naviGate(location?.state ? location.state : "/");
+            })
+            .catch(err => {
+                alert(err.message);
+            })
+    }
+    const handleGitHubSignIn = (e) => {
+        e.preventDefault();
+        signInWithGithub()
+            .then(res => {
+                alert("Log In Successfully !!!");
+                naviGate(location?.state ? location.state : "/");
+            })
+            .catch(err => {
+                alert(err.message);
+            })
+    }
     return (
         <div className="bg-cover mb-[67px] flex items-center bg-center bg-no-repeat min-h-screen w-full" style={{ backgroundImage: `url(${loginBG})` }}>
             <div className='backdrop-blur-sm bg-base/30 w-full min-h-screen'>
@@ -17,7 +69,7 @@ const LogIn = () => {
                             <p className="py-6 text-[#44483b] text-sm md:text-base">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
                         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-[#617844]" data-aos="zoom-in" data-aos-duration="2000">
-                            <form className="card-body">
+                            <form onSubmit={handleSignIn} className="card-body">
                                 <div className="form-control text-xs md:text-base">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -39,8 +91,8 @@ const LogIn = () => {
                                 </div>
                                 <div className="divider text-[#657a42] font-medium">OR</div>
                                 <div className='flex justify-center gap-x-4'>
-                                    <NavLink className="hover:tooltip hover:tooltip-open hover:tooltip-bottom" data-tip="Google" ><FcGoogle className="w-8 h-8 hover:border hover:border-[#657a42] hover:rounded-full hover:p-1" /></NavLink>
-                                    <NavLink className="hover:tooltip hover:tooltip-open hover:tooltip-bottom" data-tip="GitHub" ><FaGithub className="w-8 h-8 hover:border hover:border-[#657a42] hover:rounded-full hover:p-1" /></NavLink>
+                                    <NavLink onClick={handleGoogleSignIn} className="hover:tooltip hover:tooltip-open hover:tooltip-bottom" data-tip="Google" ><FcGoogle className="w-8 h-8 hover:border hover:border-[#657a42] hover:rounded-full hover:p-1" /></NavLink>
+                                    <NavLink onClick={handleGitHubSignIn} className="hover:tooltip hover:tooltip-open hover:tooltip-bottom" data-tip="GitHub" ><FaGithub className="w-8 h-8 hover:border hover:border-[#657a42] hover:rounded-full hover:p-1" /></NavLink>
                                 </div>
                             </form>
                         </div>
