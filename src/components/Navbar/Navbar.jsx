@@ -10,7 +10,7 @@ const Navbar = () => {
     }, [theme])
     const handleTheme = (e) => {
         if (e.target.checked) {
-            setTheme("forest");
+            setTheme("night");
         }
         else {
             setTheme("light");
@@ -18,20 +18,20 @@ const Navbar = () => {
     }
     const navLinks = <>
         <NavLink to="/" className={({ isActive }) =>
-            isActive ? "border-b-2 md:px-1 md:py-2 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 md:hover:py-2 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
+            isActive ? "border-b-2 md:px-1 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
         }>Home</NavLink>
         <NavLink to="/all-tourists-spot" className={({ isActive }) =>
-            isActive ? "border-b-2 md:px-1 md:py-2 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 md:hover:py-2 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
+            isActive ? "border-b-2 md:px-1 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
         }>All Tourists Spot</NavLink>
         <NavLink to="/add-tourists-spot" className={({ isActive }) =>
-            isActive ? "border-b-2 md:px-1 md:py-2 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 md:hover:py-2 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
+            isActive ? "border-b-2 md:px-1 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
         }>Add Tourists Spot</NavLink>
         <NavLink to="/my-list" className={({ isActive }) =>
-            isActive ? "border-b-2 md:px-1 md:py-2 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 md:hover:py-2 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
+            isActive ? "border-b-2 md:px-1 border-[#617844] rounded-b-lg text-[#617844]" : "hover:border-b-2 md:hover:px-1 hover:rounded-b-lg hover:text-[#617844] hover:border-[#617844]"
         }>My-List</NavLink>
     </>
     return (
-        <div className="navbar fixed z-50 border-b-2 rounded-b-lg  p-1 md:p-4 shadow-lg">
+        <div className="navbar bg-base-100 fixed z-50 border-b-2 rounded-b-lg  p-1 md:p-4 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,7 +41,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <NavLink to="/" className=" text-sm md:text-3xl hover:border-2 rounded-xl p-1 md:p-2 border-[#617844] font-bold md:font-extrabold text-[#8e9281] flex gap-x-1 md:gap-x-2 items-center"><img className="w-4 h-4 md:w-9 md:h-9" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" /> <span className="text-[#6a8053]">Asia</span> Adventurer</NavLink>
+                <NavLink to="/" className="btn btn-ghost hover:bg-transparent text-sm md:text-3xl hover:border-2 rounded-xl hover:border-[#617844] font-bold md:font-extrabold text-[#8e9281] flex gap-x-1 md:gap-x-2 items-center"><img className="w-4 h-4 md:w-9 md:h-9" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" /> <span className="text-[#6a8053]">Asia</span> Adventurer</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal bg-transparent items-center gap-x-6 text-[#8e9281] text-lg font-bold px-1">
@@ -56,7 +56,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </NavLink>
-                <NavLink to="/loginin" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log In</NavLink>
+                <NavLink to="/login" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log In</NavLink>
                 <NavLink to="/register" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Register</NavLink>
                 <label className="cursor-pointer grid place-items-center">
                     <input onChange={handleTheme} type="checkbox" className="toggle theme-controller bg-[#617844] row-start-1 col-start-1 col-span-2" />
