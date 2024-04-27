@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar/Navbar";
 
 const Root = () => {
     return (
-        <div>
-            <div className="h-[86px]">
+        <div className="bg-base-100">
+            <div className="h-[64px] md:h-[86px]">
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>

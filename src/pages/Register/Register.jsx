@@ -63,29 +63,29 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" name="name" placeholder="Your name" className="text-xs md:text-base input input-bordered" />
+                                    <input type="text" name="name" placeholder="Your name" className="text-xs md:text-base input input-bordered text-base-content" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Photo URL</span>
                                     </label>
-                                    <input type="text" placeholder="Photo url" name="photo" className="input text-xs md:text-base input-bordered w-full max-w-xs" />
+                                    <input type="text" placeholder="Photo url" name="photo" className="input text-xs md:text-base input-bordered w-full max-w-xs text-base-content" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name="email" placeholder="Email" className="input text-xs md:text-base input-bordered" required />
+                                    <input type="email" name="email" placeholder="Email" className="input text-xs md:text-base input-bordered text-base-content" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type={eyeCheck ? "text" : "password"} name="password" placeholder="Password" className="input text-xs md:text-base input-bordered" required />
-                                    <Link className="absolute right-14 bottom-[150px] md:bottom-40" onClick={() => setEyeCheck(!eyeCheck)}> {eyeCheck ? <LuEyeOff className="w-5 h-5" /> : <LuEye className="w-5 h-5" />} </Link>
+                                    <input type={eyeCheck ? "text" : "password"} name="password" placeholder="Password" className="input text-xs md:text-base input-bordered text-base-content" required />
+                                    <Link className="absolute right-14 bottom-[150px] md:bottom-40 text-base-content" onClick={() => setEyeCheck(!eyeCheck)}> {eyeCheck ? <LuEyeOff className="w-5 h-5" /> : <LuEye className="w-5 h-5" />} </Link>
                                 </div>
                                 <div>
-                                    <p className="text-xs md:text-base">Already in family? <Link to="/login" className="font-bold text-[#8e9281] hover:font-extrabold">LogIn Now!</Link></p>
+                                    <p className="text-xs md:text-base text-base-content">Already in family? <Link to="/login" className="font-bold text-[#8e9281] hover:font-extrabold">LogIn Now!</Link></p>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn bg-[#657a42] text-white hover:bg-transparent hover:border hover:border-[#657a42] hover:text-[#657a42]">Register</button>
