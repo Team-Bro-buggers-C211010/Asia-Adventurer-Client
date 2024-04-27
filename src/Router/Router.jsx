@@ -29,6 +29,9 @@ const router = createBrowserRouter([
             {
                 path: "/add-tourists-spot",
                 element: <AddTouristsSpot></AddTouristsSpot>
+            },
+            {
+                path: "/my-list",
             }
         ]
     },
