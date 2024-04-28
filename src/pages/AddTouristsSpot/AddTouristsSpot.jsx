@@ -39,6 +39,8 @@ const AddTouristsSpot = () => {
                     alert("New Tourists Spot Added !!!");
                 }
                 form.reset();
+                form.country.selectedIndex = 0;
+                form.season.selectedIndex = 0;
             })
 
     }
@@ -71,7 +73,15 @@ const AddTouristsSpot = () => {
                         <label className="label font-bold">
                             <span className="label-text text-[#657a42]">Country Name</span>
                         </label>
-                        <input type="text" name="country" placeholder="Country You Tour" className="input input-bordered text-[#657a42] text-xs md:text-base" required />
+                        <select name="country" className="select select-bordered w-full text-[#657a42] text-xs md:text-base">
+                            <option disabled selected>Country</option>
+                            <option>Bangladesh</option>
+                            <option>Thailand</option>
+                            <option>Indonesia</option>
+                            <option>Malaysia</option>
+                            <option>Vietnam</option>
+                            <option>Cambodia</option>
+                        </select>
                     </div>
                     <div className="form-control md:col-span-2">
                         <label className="label font-bold">
@@ -95,7 +105,12 @@ const AddTouristsSpot = () => {
                         <label className="label font-bold">
                             <span className="label-text text-[#657a42]">Seasonality</span>
                         </label>
-                        <input type="text" name="season" placeholder="Summer / Winter / Monsoon" className="input input-bordered text-[#657a42] text-xs md:text-base" required />
+                        <select name="season" className="select select-bordered w-full text-[#657a42] text-xs md:text-base">
+                            <option disabled selected>Season</option>
+                            <option>Summer</option>
+                            <option>Winter</option>
+                            <option>Monsoon</option>
+                        </select>
                     </div>
                     <div className="form-control">
                         <label className="label font-bold">
