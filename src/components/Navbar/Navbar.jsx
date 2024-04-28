@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+    const { user, loading, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState("light")
     useEffect(() => {
         localStorage.setItem("theme", theme);
@@ -15,6 +17,15 @@ const Navbar = () => {
         else {
             setTheme("light");
         }
+    }
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                alert("Log out Successfully !!!");
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     }
     const navLinks = <>
         <NavLink to="/" className={({ isActive }) =>
@@ -44,20 +55,27 @@ const Navbar = () => {
                 <NavLink to="/" className="btn btn-ghost hover:bg-transparent text-sm md:text-3xl hover:border-2 rounded-xl hover:border-[#617844] font-bold md:font-extrabold text-[#8e9281] flex gap-x-1 md:gap-x-2 items-center"><img className="w-4 h-4 md:w-9 md:h-9" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" /> <span className="text-[#6a8053]">Asia</span> Adventurer</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal bg-transparent items-center gap-x-6 text-[#8e9281] text-lg font-bold px-1">
+                <ul className="menu menu-horizontal bg-transparent items-center gap-x-6 text-[#8e9281] md:text-lg font-bold px-1">
                     {navLinks}
                 </ul>
             </div>
             <div className="navbar-end hidden md:flex gap-x-1">
-                <NavLink to="/" className="dropdown dropdown-end hover:tooltip hover:tooltip-open hover:tooltip-bottom hover:tooltip-success" data-tip="User Name">
-                    <div tabIndex={0} role="button" className="btn bg-transparent btn-circle hover:border hover:border-[#617844] avatar" >
-                        <div className="w-10 rounded-full">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="User Profile" className="" />
-                        </div>
-                    </div>
-                </NavLink>
-                <NavLink to="/login" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log In</NavLink>
-                <NavLink to="/register" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Register</NavLink>
+                {
+                    user ? <>
+                        <NavLink to="/" className="dropdown dropdown-end hover:tooltip hover:tooltip-open hover:tooltip-bottom hover:tooltip-success" data-tip="User Name">
+                            <div tabIndex={0} role="button" className="btn bg-transparent btn-circle hover:border hover:border-[#617844] avatar" >
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} alt="User Profile" className="" />
+                                </div>
+                            </div>
+                        </NavLink>
+                        <NavLink onClick={handleLogOut} to="/login" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log Out</NavLink>
+                    </> :
+                        <>
+                            <NavLink to="/login" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log In</NavLink>
+                            <NavLink to="/register" className="btn text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Register</NavLink>
+                        </>
+                }
                 <label className="swap swap-rotate">
                     {/* this hidden checkbox controls the state */}
                     <input onChange={handleTheme} type="checkbox" className="theme-controller" value="synthwave" />

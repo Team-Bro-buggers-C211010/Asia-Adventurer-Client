@@ -5,6 +5,8 @@ import LogIn from "../pages/LogIn/LogIn";
 import Register from "../pages/Register/Register";
 import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
+import MyList from "../pages/MyList/MyList";
+import Update from "../pages/Update/Update";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -32,6 +34,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-list",
+                element: <MyList></MyList>,
+            },
+            {
+                path: "/update-spots",
+                element: <Update></Update>
             }
         ]
     },
