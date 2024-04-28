@@ -48,14 +48,14 @@ const Navbar = () => {
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 font-bold text-[#8e9281] shadow bg-base-100 rounded-box w-52">
                         {navLinks}
                     </ul>
                 </div>
-                <NavLink to="/" className="btn btn-ghost hover:bg-transparent text-sm md:text-3xl hover:border-2 rounded-xl hover:border-[#617844] font-bold md:font-extrabold text-[#8e9281] flex gap-x-1 md:gap-x-2 items-center"><img className="w-4 h-4 md:w-9 md:h-9" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" /> <span className="text-[#6a8053]">Asia</span> Adventurer</NavLink>
+                <NavLink to="/" className="btn btn-ghost hover:bg-transparent text-sm md:text-2xl hover:border-2 rounded-xl hover:border-[#617844] font-bold md:font-extrabold text-[#8e9281] flex gap-x-1 md:gap-x-2 items-center"><img className="w-4 h-4 md:w-9 md:h-9" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" /> <span className="text-[#6a8053]">Asia</span> Adventurer</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal bg-transparent items-center gap-x-6 text-[#8e9281] md:text-lg font-bold px-1">
+                <ul className="menu menu-horizontal bg-transparent items-center gap-2 md:gap-5 text-[#8e9281] md:text-base font-bold px-1">
                     {navLinks}
                 </ul>
             </div>

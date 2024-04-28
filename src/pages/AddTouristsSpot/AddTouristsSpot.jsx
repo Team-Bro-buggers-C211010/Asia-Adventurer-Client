@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import add from "../../images/Add.svg"
 
 const AddTouristsSpot = () => {
     const { user } = useContext(AuthContext);
@@ -43,8 +44,9 @@ const AddTouristsSpot = () => {
     }
 
     return (
-        <div className="container mx-auto mt-4 md:mt-12 px-1 md:px-0">
-            <form onSubmit={handleAddTouristsSpot} className="card-body border-2 border-[#8e9281] rounded-xl bg-[#ccd7af] border-base-content md:w-2/3 flex mx-auto">
+        <div className="container mx-auto mt-4 md:mt-8 px-1 md:px-0 flex flex-col justify-center items-center">
+            <div><img className="w-48 h-48" src={add} alt="" /></div>
+            <form onSubmit={handleAddTouristsSpot} className="card-body border-2 border-[#8e9281] rounded-xl bg-[#ccd7af] md:w-2/3 flex mx-auto">
                 <h1 className="text-center text-xl mb-2 md:mb-4 md:text-3xl font-extrabold text-[#8e9281]">Add Your Tourists Spot</h1>
                 <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
                     <div className="form-control">
@@ -57,7 +59,7 @@ const AddTouristsSpot = () => {
                         <label className="label font-bold">
                             <span className="label-text text-[#657a42]">Your Email</span>
                         </label>
-                        <input type="email" defaultValue={user.email} name="userEmail" placeholder="hablu@paglu.com" className="input input-bordered text-[#657a42] text-xs md:text-base" required />
+                        <input type="email" defaultValue={user.email} name="userEmail" placeholder="hablu@paglu.com" className="input input-bordered text-[#657a42] text-xs md:text-base" disabled required />
                     </div>
                     <div className="form-control">
                         <label className="label font-bold">

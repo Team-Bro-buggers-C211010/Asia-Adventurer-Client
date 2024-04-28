@@ -56,7 +56,7 @@ const MyList = () => {
                                         <td>{tourist.spotName}</td>
                                         <td>{tourist.season}</td>
                                         <td>$ {tourist.avgCost}</td>
-                                        <td><Link to="/update-spots"><FaEdit className="w-5 h-5"></FaEdit></Link></td>
+                                        <td><Link tourist={tourist} to={`/update-spots/${tourist._id}`}><FaEdit className="w-5 h-5"></FaEdit></Link></td>
                                         <td><button onClick={() => handleDelete(tourist._id)}><MdDelete className="w-5 h-5"></MdDelete></button></td>
                                     </tr>)
                                 }
