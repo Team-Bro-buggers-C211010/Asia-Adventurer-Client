@@ -3,6 +3,7 @@ import { FaSackDollar } from "react-icons/fa6";
 import { MdAccessTime } from "react-icons/md";
 import { FiSun } from "react-icons/fi";
 import { FaChartArea } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const TouristSpotCard = ({ singleSpot }) => {
     return (
         <div className="card card-compact rounded-none w-full bg-white border-4 border-[#a6ac92] shadow-xl">
@@ -16,7 +17,7 @@ const TouristSpotCard = ({ singleSpot }) => {
                     <h1 className="text-[#5a6f38] text-base md:text-lg font-semibold flex items-center gap-1"><IoManOutline></IoManOutline>{singleSpot.visitors}</h1>
                 </div>
                 <div className="card-actions justify-center">
-                    <button className="btn bg-[#657a42] text-white hover:border-2 hover:border-[#657a42] hover:text-[#657a42] hover:bg-transparent">View Details</button>
+                    <Link to={`/spot-details/${singleSpot._id}`} className="btn bg-[#657a42] text-white hover:border-2 hover:border-[#657a42] hover:text-[#657a42] hover:bg-transparent">View Details</Link>
                 </div>
             </div>
         </div>

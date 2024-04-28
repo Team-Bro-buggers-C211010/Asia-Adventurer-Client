@@ -8,14 +8,14 @@ const AllTouristsSpot = () => {
     const handleSort = e => {
         const sortType = e.target.value;
         if (sortType === "Ascending") {
-            fetch("http://localhost:5000/all-tourists-spot/1")
+            fetch("http://localhost:5000/all-tourists-spot/sort/1")
                 .then(res => res.json())
                 .then(data => {
                     setAllSpots(data);
                 })
         }
         else {
-            fetch("http://localhost:5000/all-tourists-spot/-1")
+            fetch("http://localhost:5000/all-tourists-spot/sort/-1")
                 .then(res => res.json())
                 .then(data => {
                     setAllSpots(data);
