@@ -1,9 +1,9 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaSackDollar } from "react-icons/fa6";
-import { FaMapLocationDot } from "react-icons/fa6";
 import { IoManOutline } from "react-icons/io5";
-import { TbWorld } from "react-icons/tb";
-import { FaChartArea } from "react-icons/fa";
+import { FaChartArea } from "react-icons/fa";as
+import { MdAccessTime } from "react-icons/md";
+import { FiSun } from "react-icons/fi";
 const TouristsCountryCard = ({ singleSpot }) => {
     return (
         <div className="card card-compact rounded-none w-full bg-white border-4 border-[#a6ac92] shadow-xl">
@@ -11,6 +11,10 @@ const TouristsCountryCard = ({ singleSpot }) => {
             <figure className="h-64 relative"><img src={singleSpot.photo} className="h-full w-full object-cover object-center" alt="Shoes" /></figure>
             <p className="absolute top-20 text-[#5a6f38] font-semibold bg-[#ccd7af] w-28 p-2 border-2 border-l-0 border-[#a6ac92] rounded-r-full justify-center flex gap-1 items-center"><FiSun></FiSun>{singleSpot.season}</p>
             <div className="card-body">
+                <h1 className="text-base md:text-xl text-[#5a6f38] font-bold "><span className="font-extrabold">Country :</span> {singleSpot.country}</h1>
+                <h1 className="text-base md:text-xl text-[#5a6f38] font-bold"><span className="font-extrabold">Location :</span> {singleSpot.location}</h1>
+                <h1 className="text-base md:text-xl text-[#5a6f38] font-bold"><span className="font-extrabold">Description :</span> </h1>
+                <p className="text-sm md:text-lg text-[#5a6f38] font-semibold">{singleSpot.description}</p>
                 <div className="flex justify-between">
                     <h1 className="text-[#5a6f38] text-base md:text-lg font-semibold flex items-center gap-1"><FaSackDollar></FaSackDollar>{singleSpot.avgCost}</h1>
                     <h1 className="text-[#5a6f38] text-base md:text-lg font-semibold flex items-center gap-1"><MdAccessTime></MdAccessTime>{singleSpot.travelTime}</h1>

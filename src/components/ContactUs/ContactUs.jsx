@@ -14,8 +14,8 @@ const ContactUs = () => {
         <div className=''>
             <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Contact Us !!!</h1>
             <div className="mt-5 md:mt-10 flex flex-col md:flex-row gap-5 border-2 rounded-xl border-[#657a42] p-2 md:p-5">
-                <div>
-                    <h1 className="text-lg md:text-2xl text-base-content font-bold pb-2">Need any help ?</h1>
+                <div className='font-Roboto'>
+                    <h1 className="text-lg md:text-2xl font-Montserrat text-base-content font-bold pb-2">Need any help ?</h1>
                     <hr className="border-[#657a42]" />
                     <div className="mt-5 text-base md:text-xl pl-2 text-base-content border-l-2 border-[#657a42]">
                         <h1 className="font-medium">Call 24/7 for any help</h1>

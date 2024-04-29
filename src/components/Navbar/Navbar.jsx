@@ -42,7 +42,7 @@ const Navbar = () => {
         }>My-List</NavLink>
     </>
     return (
-        <div className="navbar bg-base-100 fixed z-50 border-b-2 rounded-b-lg  p-1 md:p-4 shadow-lg">
+        <div className="navbar bg-base-100 font-Poppins fixed z-50 border-b-2 rounded-b-lg  p-1 md:p-4 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
