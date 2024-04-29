@@ -30,10 +30,10 @@ const MyList = () => {
     }
 
     return (
-        <div className="min-h-screen mb-14 font-Poppins bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
+        <div className="min-h-screen font-Poppins bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
             <div className="backdrop-blur-sm bg-base/20 min-h-screen w-full">
                 <h1 className="text-center text-xl md:text-3xl font-bold mt-5 md:mt-8 mb-5 text-[#8e9281]"> Planner : <span className="text-[#657a42]">{user.displayName}</span></h1>
-                <div className="container mx-auto border-2 border-[#8e9281] bg-[#ccd7af]">
+                <div className="container mx-auto border-2 border-[#8e9281] bg-[#ccd7af] mb-14">
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}

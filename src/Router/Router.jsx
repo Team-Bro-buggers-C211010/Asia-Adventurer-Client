@@ -9,6 +9,7 @@ import MyList from "../pages/MyList/MyList";
 import Update from "../pages/Update/Update";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import CountryPage from "../pages/CountryPage/CountryPage";
+import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -34,25 +35,25 @@ const router = createBrowserRouter([
             },
             {
                 path: "/add-tourists-spot",
-                element: <AddTouristsSpot></AddTouristsSpot>
+                element: <PrivateRoutes><AddTouristsSpot></AddTouristsSpot></PrivateRoutes>
             },
             {
                 path: "/my-list",
-                element: <MyList></MyList>,
+                element: <PrivateRoutes><MyList></MyList></PrivateRoutes>,
             },
             {
                 path: "/update-spots/:id",
-                element: <Update></Update>,
+                element: <PrivateRoutes><Update></Update></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/all-tourists-spot/current-spot/${params.id}`)
             },
             {
                 path: "/spot-details/:id",
-                element: <ViewDetails></ViewDetails>,
+                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/all-tourists-spot/current-spot/${params.id}`)
             },
             {
                 path: "/tourists-spot/:countryName",
-                element: <CountryPage></CountryPage>,
+                element: <PrivateRoutes><CountryPage></CountryPage></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/tourists-country/${params.countryName}`)
             }
         ]
