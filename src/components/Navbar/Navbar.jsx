@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
@@ -21,10 +22,42 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                alert("Log out Successfully !!!");
+                let timerInterval;
+                Swal.fire({
+                    title: "Log Out Successfully !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
             .catch(err => {
-                console.log(err.message);
+                let timerInterval;
+                Swal.fire({
+                    title: err.message,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });;
             })
     }
     const navLinks = <>

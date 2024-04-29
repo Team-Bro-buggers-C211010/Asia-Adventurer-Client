@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import update from "../../images/update.svg";
+import Swal from "sweetalert2";
 const Update = () => {
     const currentData = useLoaderData();
     console.log(currentData);
@@ -19,20 +20,43 @@ const Update = () => {
         const updateSpot = { spotName, country, location, description, season, travelTime, avgCost, visitors, photo };
         console.log(updateSpot);
 
-        fetch(`http://localhost:5000/all-tourists-spot/${currentData._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(updateSpot)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    alert("Spots is Updated");
-                }
-            })
+        Swal.fire({
+            title: "Are you sure to update it ?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, update it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/all-tourists-spot/${currentData._id}`, {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(updateSpot)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            Swal.fire({
+                                title: "Updated!",
+                                text: "Your file has been updated.",
+                                icon: "success"
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: "Nothing Changed!",
+                                text: "Nothing is updated.",
+                                icon: "warning"
+                            })
+                        }
+                    })
+            }
+        });
 
     }
     return (

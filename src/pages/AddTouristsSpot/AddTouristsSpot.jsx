@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import add from "../../images/Add.svg"
+import Swal from "sweetalert2";
 
 const AddTouristsSpot = () => {
     const { user } = useContext(AuthContext);
@@ -24,25 +25,47 @@ const AddTouristsSpot = () => {
         const newTouristsSpot = { userName, userEmail, spotName, country, location, description, season, travelTime, avgCost, visitors, photo };
         console.log(newTouristsSpot);
 
-        // send data to the server
-        fetch("http://localhost:5000/all-tourists-spot", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newTouristsSpot)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    alert("New Tourists Spot Added !!!");
-                }
-                form.reset();
-                form.country.selectedIndex = 0;
-                form.season.selectedIndex = 0;
-            })
-
+        Swal.fire({
+            title: "Are you sure to add it ?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, add it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // send data to the server
+                fetch("http://localhost:5000/all-tourists-spot", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(newTouristsSpot)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            Swal.fire({
+                                title: "Added!",
+                                text: "New Tourists Spot Added !!!",
+                                icon: "success"
+                            });
+                        }
+                        form.reset();
+                        form.country.selectedIndex = 0;
+                        form.season.selectedIndex = 0;
+                    })
+            }
+            else {
+                Swal.fire({
+                    title: "Nothing Added!",
+                    text: "New Tourists Spot is not added !!!",
+                    icon: "error"
+                });
+            }
+        });
     }
 
     return (

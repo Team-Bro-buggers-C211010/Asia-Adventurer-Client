@@ -6,6 +6,11 @@ import { LuEyeOff } from "react-icons/lu";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import loginBG from "../../images/logIn.svg"
 import { AuthContext } from "../../Providers/AuthProvider";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
+
 const LogIn = () => {
     const naviGate = useNavigate();
     const location = useLocation();
@@ -16,47 +21,127 @@ const LogIn = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         if (password.length < 6) {
-            alert("Password should be at least 6 characters");
+            toast.error("Password should be at least 6 characters");
             return;
         }
         else if (!/[A-Z]/.test(password)) {
-            alert("Password should have one uppercase character");
+            toast.error("Password should have one uppercase character");
             return;
         }
         else if (!/[a-z]/.test(password)) {
-            alert("Password should have at least one lowercase character");
+            toast.error("Password should have at least one lowercase character");
             return;
         }
         signInUser(email, password)
             .then(res => {
                 e.target.reset();
                 naviGate(location?.state ? location.state : "/");
-                alert("Log In Successfully !!!");
+                let timerInterval;
+                Swal.fire({
+                    title: "Log In Successfully !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
             .catch(err => {
-                alert("Invalid Email or Password !!!");
+                toast.error("Invalid Email or Password !!!");
             })
     }
     const handleGoogleSignIn = (e) => {
         e.preventDefault();
         signInWithGoogle()
             .then(res => {
-                alert("Log In Successfully !!!");
                 naviGate(location?.state ? location.state : "/");
+                let timerInterval;
+                Swal.fire({
+                    title: "Log In Successfully !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
             .catch(err => {
-                alert(err.message);
+                let timerInterval;
+                Swal.fire({
+                    title: err.message,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
     }
     const handleGitHubSignIn = (e) => {
         e.preventDefault();
         signInWithGithub()
             .then(res => {
-                alert("Log In Successfully !!!");
                 naviGate(location?.state ? location.state : "/");
+                let timerInterval;
+                Swal.fire({
+                    title: "Log In Successfully !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
             .catch(err => {
-                alert(err.message);
+                let timerInterval;
+                Swal.fire({
+                    title: err.message,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
     }
     return (
@@ -99,6 +184,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer position="top-center" />
         </div>
     );
 };

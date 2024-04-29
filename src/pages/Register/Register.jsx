@@ -5,6 +5,9 @@ import { LuEyeOff } from "react-icons/lu";
 import registerBG from "../../images/register.svg"
 import { AuthContext } from './../../Providers/AuthProvider';
 import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from "sweetalert2";
 
 const Register = () => {
     const location = useLocation();
@@ -19,15 +22,15 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         if (password.length < 6) {
-            alert("Password should be at least 6 characters");
+            toast.error("Password should be at least 6 characters");
             return;
         }
         else if (!/[A-Z]/.test(password)) {
-            alert("Password should have one uppercase character");
+            toast.error("Password should have one uppercase character");
             return;
         }
         else if (!/[a-z]/.test(password)) {
-            alert("Password should have at least one lowercase character.");
+            toast.error("Password should have at least one lowercase character.");
             return;
         }
         createUser(email, password)
@@ -42,10 +45,42 @@ const Register = () => {
                 e.target.reset();
                 setLoading(true);
                 naviGate(location?.state ? location.state : "/");
-                alert("User register successfully !!!");
+                let timerInterval;
+                Swal.fire({
+                    title: "User register successfully !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
             .catch(err => {
-                alert("Invalid information or user already created !!!", err);
+                let timerInterval;
+                Swal.fire({
+                    title: "Invalid information or user already created !!!",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                });
             })
     }
     return (
@@ -95,6 +130,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer position="top-center"></ToastContainer>
         </div>
     );
 };
