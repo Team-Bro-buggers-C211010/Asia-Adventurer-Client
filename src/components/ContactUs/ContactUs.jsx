@@ -2,7 +2,7 @@ import L from 'leaflet';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import locationImg from "../../images/location.png"
-
+import { Bounce } from "react-awesome-reveal";
 const customIcon = new L.Icon({
     iconUrl: locationImg ,
     iconSize: [32, 32], // size of the icon
@@ -12,7 +12,7 @@ const ContactUs = () => {
     const position = [23.8104644,90.3209953]
     return (
         <div className=''>
-            <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Contact Us !!!</h1>
+            <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold"><Bounce>Contact Us !!!</Bounce></h1>
             <div className="mt-5 md:mt-10 flex flex-col md:flex-row gap-5 border-2 rounded-xl border-[#657a42] p-2 md:p-5">
                 <div className='font-Roboto'>
                     <h1 className="text-lg md:text-2xl font-Montserrat text-base-content font-bold pb-2">Need any help ?</h1>

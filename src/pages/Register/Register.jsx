@@ -8,6 +8,7 @@ import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const Register = () => {
     const location = useLocation();
@@ -89,7 +90,17 @@ const Register = () => {
                 <div className="hero rounded-2xl lg:h-[800px]">
                     <div className="hero-content flex-col">
                         <div className="text-center md:w-1/2">
-                            <h1 className="text-4xl md:text-5xl font-bold text-[#657a42]">Register now!</h1>
+                            <h1 className="text-4xl md:text-5xl font-bold text-[#657a42]">
+                                <Typewriter
+                                    words={['Register now!']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={80}
+                                    deleteSpeed={100}
+                                    delaySpeed={1500}
+                                />
+                            </h1>
                             <p className="py-6 text-sm md:text-base text-[#44483b]">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
                         <div className="card shrink-0 w-full max-w-sm md:w-1/2 shadow-2xl bg-base-100 border-2 border-[#657a42]">

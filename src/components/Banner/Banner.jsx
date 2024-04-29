@@ -9,8 +9,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
 import { ImLocation } from "react-icons/im";
+import { Typewriter } from 'react-simple-typewriter';
 
 export default function Banner() {
     const progressCircle = useRef(null);
@@ -45,7 +45,17 @@ export default function Banner() {
                     <div className='absolute p-5 w-2/3 md:w-1/3 text-base-content backdrop-blur-sm bg-base-100/10 md:top-20 flex flex-col items-center md:right-10'>
                         <div className='flex items-center md:gap-x-1 font-extrabold text-[#4e5e38]'>
                             <ImLocation className='h-7 w-7'></ImLocation>
-                            <h1 className='text-base md:text-3xl font-Montserrat'>Rangamati, Bangladesh</h1>
+                            <h1 className='text-base md:text-3xl font-Montserrat'> Rangamati,{" "}
+                                <Typewriter
+                                    words={['Bangladesh']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={60}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </h1>
                         </div>
                         <br />
                         <p className='font-medium font-Roboto'>Explore the serene beauty of Rangamati, Bangladesh. From shimmering lakes to lush hills, it's a paradise for nature lovers.</p>
@@ -56,7 +66,17 @@ export default function Banner() {
                     <div className='absolute p-5 w-2/3 md:w-1/3 text-base-content backdrop-blur-sm bg-base-100/10 md:top-20 flex flex-col items-center md:left-10'>
                         <div className='flex items-center md:gap-x-1 font-extrabold text-[#4e5e38]'>
                             <ImLocation className='h-7 w-7'></ImLocation>
-                            <h1 className='text-base md:text-3xl font-Montserrat'>Kuala Lumpur, Malaysia</h1>
+                            <h1 className='text-base md:text-3xl font-Montserrat'>Kuala Lumpur,{" "}
+                                <Typewriter
+                                    words={['Malaysia']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={60}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </h1>
                         </div>
                         <br />
                         <p className='font-medium font-Roboto'>Immerse yourself in the vibrant culture of Kuala Lumpur, Malaysia. Iconic landmarks, delicious street food, and bustling markets await.</p>
@@ -67,7 +87,17 @@ export default function Banner() {
                     <div className='absolute p-5 w-2/3 md:w-1/3 text-base-content backdrop-blur-sm bg-base-100/10 md:top-20 flex flex-col items-center md:right-10'>
                         <div className='flex items-center md:gap-x-1 font-extrabold text-[#4e5e38]'>
                             <ImLocation className='h-7 w-7'></ImLocation>
-                            <h1 className='text-base md:text-3xl font-Poppins'>Ha Long Bay, Vietnam</h1>
+                            <h1 className='text-base md:text-3xl font-Poppins'>Ha Long Bay,{" "}
+                                <Typewriter
+                                    words={['Vietnam']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={60}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </h1>
                         </div>
                         <br />
                         <p className='font-medium font-Roboto'>Cruise through the breathtaking beauty of Ha Long Bay, Vietnam. Limestone karsts, hidden caves, and tranquil bays beckon.</p>
@@ -78,7 +108,17 @@ export default function Banner() {
                     <div className='absolute p-5 w-2/3 md:w-1/3 text-base-content backdrop-blur-sm bg-base-100/10 md:top-20 flex flex-col items-center md:left-10'>
                         <div className='flex items-center md:gap-x-1 font-extrabold text-[#4e5e38]'>
                             <ImLocation className='h-7 w-7'></ImLocation>
-                            <h1 className='text-base md:text-3xl font-Montserrat'>Koh Samui, Thailand</h1>
+                            <h1 className='text-base md:text-3xl font-Montserrat'>Koh Samui,{" "}
+                                <Typewriter
+                                    words={['Thailand']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={60}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </h1>
                         </div>
                         <br />
                         <p className='font-medium font-Roboto'>Indulge in tropical bliss on Koh Samui's pristine beaches. Crystal-clear waters, palm-fringed shores, and stunning sunsets await.</p>
@@ -93,7 +133,15 @@ export default function Banner() {
             </Swiper>
             <div className='absolute z-10 h-44 md:h-56 w-44 md:w-56 p-5 -bottom-28 rounded-full border-2 border-[#657a42] bg-[#ccd7af] flex justify-center items-center shadow-lg'>
                 <p className='text-center text-base md:text-xl text-[#657a42] font-bold font-Poppins'>
-                    Traveling – it leaves you speechless, then turns you into a storyteller
+                    <Typewriter
+                        words={['Traveling', 'Journeying', 'Exploring']}
+                        loop={true}
+                        cursor
+                        cursorStyle='_'
+                        typeSpeed={80}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    /> – it leaves you speechless, then turns you into a storyteller
                 </p>
             </div>
         </div>

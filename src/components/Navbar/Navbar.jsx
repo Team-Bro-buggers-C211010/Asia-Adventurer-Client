@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
+
 const Navbar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
     const [theme, setTheme] = useState("light")
@@ -109,7 +110,7 @@ const Navbar = () => {
             <div className="navbar-end hidden md:flex gap-x-1">
                 {
                     user ? <>
-                        <NavLink to="/my-list" className="dropdown dropdown-end hover:tooltip hover:tooltip-open hover:tooltip-bottom hover:tooltip-success" data-tip="User Name">
+                        <NavLink to="/my-list" className="dropdown dropdown-end hover:tooltip hover:tooltip-open hover:tooltip-bottom hover:tooltip-success" data-tip={user.displayName}>
                             <div tabIndex={0} role="button" className="btn bg-transparent btn-circle hover:border hover:border-[#617844] avatar" >
                                 <div className="w-10 rounded-full">
                                     <img src={user.photoURL} alt="User Profile" className="" />

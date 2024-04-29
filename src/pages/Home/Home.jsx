@@ -5,7 +5,7 @@ import { useState } from "react";
 import LatestTravelNews from "../../components/LatestTravelNews/LatestTravelNews";
 import ContactUs from "../../components/ContactUs/ContactUs";
 import ContrySection from "../../components/CountrySection/ContrySection";
-
+import { Slide, Bounce } from "react-awesome-reveal";
 const Home = () => {
     const allSpots = useLoaderData();
     const [viewAll, setViewALL] = useState(false);
@@ -13,12 +13,14 @@ const Home = () => {
         <div className="mb-14">
             <Banner></Banner>
             <div className="mt-40 font-Poppins container mx-auto px-1 md:px-0">
-                <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Discover Top Tourist Destinations</h1>
+                <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold"><Bounce>Discover Top Tourist Destinations</Bounce></h1>
                 <p className="mt-5 font-Roboto text-[#8e9281] text-center text-sm md:text-base font-semibold mx-auto md:w-2/3">Explore breathtaking landscapes, vibrant cultures, and unforgettable experiences in our curated collection of must-visit tourist spots. From pristine beaches to ancient temples, there's something for every traveler to discover and enjoy.</p>
                 <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {
-                        allSpots.slice(0, viewAll ? allSpots.length : 6).map(spot => <HomeSpotCard key={spot._id} spot={spot}></HomeSpotCard>)
-                    }
+                    <Slide direction="up" triggerOnce="true">
+                        {
+                            allSpots.slice(0, viewAll ? allSpots.length : 6).map(spot => <HomeSpotCard key={spot._id} spot={spot}></HomeSpotCard>)
+                        }
+                    </Slide>
                 </div>
                 <div className="flex justify-center items-center mt-5">
                     {

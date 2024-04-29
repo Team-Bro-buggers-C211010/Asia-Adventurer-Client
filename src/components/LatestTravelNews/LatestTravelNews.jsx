@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import { Bounce } from "react-awesome-reveal";
 const LatestTravelNews = () => {
     return (
         <div className="mt-16">
-            <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Latest Travel News</h1>
+            <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold"><Bounce>Latest Travel News</Bounce></h1>
             <p className="mt-5 text-[#8e9281] font-Roboto text-center text-sm md:text-base font-semibold mx-auto md:w-2/3">Stay up-to-date with our Latest Travel News, your gateway to the latest trends, tips, and updates from the world of travel. Discover exciting destinations, insider insights, and expert advice to inspire your next adventure.</p>
             <div className="mt-10 flex flex-col md:flex-row border-[#657a42] border-2 p-2 md:p-5 rounded-xl">
                 <div className="w-full md:w-1/2 flex flex-col gap-5 h-full">

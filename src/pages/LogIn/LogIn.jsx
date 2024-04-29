@@ -10,6 +10,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const LogIn = () => {
     const naviGate = useNavigate();
@@ -150,7 +151,17 @@ const LogIn = () => {
                 <div className=" hero rounded-2xl md:h-[800px] ">
                     <div className="hero-content flex-col">
                         <div className="text-center md:w-1/2">
-                            <h1 className="text-3xl md:text-5xl font-semibold md:font-bold text-[#657a42]">LogIn now!</h1>
+                            <h1 className="text-3xl md:text-5xl font-semibold md:font-bold text-[#657a42]">
+                                <Typewriter
+                                    words={['LogIn now!']}
+                                    loop={true}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={80}
+                                    deleteSpeed={100}
+                                    delaySpeed={1500}
+                                />
+                            </h1>
                             <p className="py-6 text-[#44483b] text-sm md:text-base">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
                         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-[#617844]">

@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import update from "../../images/update.svg";
 import Swal from "sweetalert2";
+import { Bounce } from "react-awesome-reveal";
 const Update = () => {
     const currentData = useLoaderData();
     console.log(currentData);
@@ -63,7 +64,7 @@ const Update = () => {
         <div className="container mx-auto mb-14 font-Poppins mt-4 md:mt-12 px-1 md:px-0 flex flex-col justify-center items-center">
             <div><img className="w-48 h-48" src={update} alt="" /></div>
             <form onSubmit={handleUpdate} className="card-body border-2 border[#8e9281] rounded-xl bg-[#ccd7af] border-base-content md:w-2/3 flex mx-auto">
-                <h1 className="text-center text-xl mb-2 md:mb-4 md:text-3xl font-extrabold text-[#8e9281]">Update Your Tourists Spot</h1>
+                <Bounce><h1 className="text-center text-xl mb-2 md:mb-4 md:text-3xl font-extrabold text-[#8e9281]">Update Your Tourists Spot</h1></Bounce>
                 <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
                     <div className="form-control">
                         <label className="label font-bold font-Montserrat">

@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import myListBG from "../../images/myListBG.svg";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rotate } from "react-awesome-reveal";
 const MyList = () => {
     const { user } = useContext(AuthContext);
     const [currentData, setCurrentData] = useState([]);
@@ -57,7 +58,7 @@ const MyList = () => {
     return (
         <div className="min-h-screen font-Poppins bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
             <div className="backdrop-blur-sm bg-base/20 min-h-screen w-full">
-                <h1 className="text-center text-xl md:text-3xl font-bold mt-5 md:mt-8 mb-5 text-[#8e9281]"> Planner : <span className="text-[#657a42]">{user.displayName}</span></h1>
+                <h1 className="text-lg md:text-3xl font-bold mt-5 md:mt-8 mb-5 text-[#8e9281] flex justify-center items-center gap-1"> Planner :<Rotate direction="right" triggerOnce="true"><span className="text-[#657a42]">{user.displayName}</span></Rotate></h1>
                 <div className="container mx-auto border-2 border-[#8e9281] bg-[#ccd7af] mb-14">
                     <div className="overflow-x-auto">
                         <table className="table">
