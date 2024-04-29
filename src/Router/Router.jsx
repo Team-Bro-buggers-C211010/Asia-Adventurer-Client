@@ -8,6 +8,7 @@ import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import MyList from "../pages/MyList/MyList";
 import Update from "../pages/Update/Update";
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
+import CountryPage from "../pages/CountryPage/CountryPage";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
                 path: "/spot-details/:id",
                 element: <ViewDetails></ViewDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/all-tourists-spot/current-spot/${params.id}`)
+            },
+            {
+                path: "/tourists-spot/:countryName",
+                element: <CountryPage></CountryPage>,
+                loader: ({params}) => fetch(`http://localhost:5000/tourists-country/${params.countryName}`)
             }
         ]
     },

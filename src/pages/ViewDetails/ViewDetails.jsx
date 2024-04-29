@@ -3,7 +3,6 @@ import { FaSackDollar } from "react-icons/fa6";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { IoManOutline } from "react-icons/io5";
 import { TbWorld } from "react-icons/tb";
-import { FiSun } from "react-icons/fi";
 import { FaChartArea } from "react-icons/fa";
 const ViewDetails = () => {
     const currentSpot = useLoaderData();
