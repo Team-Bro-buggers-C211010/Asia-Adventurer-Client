@@ -5,7 +5,7 @@ const LatestTravelNews = () => {
         <div className="mt-16">
             <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Latest Travel News</h1>
             <p className="mt-5 text-[#8e9281] text-center text-sm md:text-base font-semibold mx-auto md:w-2/3">Stay up-to-date with our Latest Travel News, your gateway to the latest trends, tips, and updates from the world of travel. Discover exciting destinations, insider insights, and expert advice to inspire your next adventure.</p>
-            <div className="mt-10 flex flex-col lg:flex-row border-[#657a42] border-2 p-2 md:p-5 rounded-xl">
+            <div className="mt-10 flex flex-col md:flex-row border-[#657a42] border-2 p-2 md:p-5 rounded-xl">
                 <div className="md:w-1/2 flex flex-col gap-5 h-full">
                     <div className="flex gap-5 w-full">
                         <div className="w-28 h-28"><img className="h-full w-full rounded-2xl object-cover object-center" src="https://i.ibb.co/yPDsFWB/Home-Penthouse.jpg" alt="" /></div>

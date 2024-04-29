@@ -4,6 +4,7 @@ import HomeSpotCard from "../../components/HomeSpotCard/HomeSpotCard";
 import { useState } from "react";
 import LatestTravelNews from "../../components/LatestTravelNews/LatestTravelNews";
 import ContactUs from "../../components/ContactUs/ContactUs";
+import ContrySection from "../../components/CountrySection/ContrySection";
 
 const Home = () => {
     const allSpots = useLoaderData();
@@ -26,6 +27,7 @@ const Home = () => {
                             <button className="btn bg-[#657a42] text-white hover:border-2 hover:border-[#657a42] hover:text-[#657a42] hover:bg-transparent" onClick={() => setViewALL(!viewAll)}>View Less</button>
                     }
                 </div>
+                <ContrySection></ContrySection>
                 <LatestTravelNews></LatestTravelNews>
                 <div className="mt-14">
                     <ContactUs></ContactUs>

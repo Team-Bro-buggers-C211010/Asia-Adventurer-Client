@@ -9,7 +9,7 @@ const customIcon = new L.Icon({
 });
 
 const ContactUs = () => {
-    const position = [23.7898731,90.3370127]
+    const position = [23.8104644,90.3209953]
     return (
         <div className=''>
             <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Contact Us !!!</h1>
