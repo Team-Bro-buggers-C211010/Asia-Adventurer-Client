@@ -10,7 +10,7 @@ const Home = () => {
     const allSpots = useLoaderData();
     const [viewAll, setViewALL] = useState(false);
     return (
-        <div>
+        <div className="mb-14">
             <Banner></Banner>
             <div className="mt-40 font-Poppins container mx-auto px-1 md:px-0">
                 <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold">Discover Top Tourist Destinations</h1>

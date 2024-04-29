@@ -30,7 +30,7 @@ const MyList = () => {
     }
 
     return (
-        <div className="min-h-screen bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
+        <div className="min-h-screen mb-14 font-Poppins bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
             <div className="backdrop-blur-sm bg-base/20 min-h-screen w-full">
                 <h1 className="text-center text-xl md:text-3xl font-bold mt-5 md:mt-8 mb-5 text-[#8e9281]"> Planner : <span className="text-[#657a42]">{user.displayName}</span></h1>
                 <div className="container mx-auto border-2 border-[#8e9281] bg-[#ccd7af]">
@@ -38,7 +38,7 @@ const MyList = () => {
                         <table className="table">
                             {/* head */}
                             <thead>
-                                <tr className="text-[#657a42] font-extrabold">
+                                <tr className="text-[#657a42] font-extrabold font-Montserrat">
                                     <th></th>
                                     <th>Image</th>
                                     <th>Tourists Spot Name</th>
@@ -50,7 +50,7 @@ const MyList = () => {
                             </thead>
                             <tbody>
                                 {
-                                    currentData.map((tourist, idx) => <tr key={tourist._id} className="hover:bg-[#657a42] font-semibold hover:text-white">
+                                    currentData.map((tourist, idx) => <tr key={tourist._id} className="hover:bg-[#657a42] font-medium font-Roboto hover:text-white">
                                         <th>{idx + 1}</th>
                                         <td><img src={tourist.photo} className="w-8 h-8 object-cover rounded-full" alt="" /></td>
                                         <td>{tourist.spotName}</td>

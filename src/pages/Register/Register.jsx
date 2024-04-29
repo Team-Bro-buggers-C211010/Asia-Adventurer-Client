@@ -49,15 +49,15 @@ const Register = () => {
             })
     }
     return (
-        <div className="bg-cover mb-[67px] flex items-center bg-center bg-no-repeat min-h-screen w-full" style={{ backgroundImage: `url(${registerBG})` }}>
-            <div className='backdrop-blur-sm bg-base/30 w-full min-h-screen'>
+        <div className="bg-cover flex items-center bg-center bg-no-repeat min-h-[calc(100vh-357px)] w-full" style={{ backgroundImage: `url(${registerBG})` }}>
+            <div className='backdrop-blur-sm bg-base/30 w-full min-h-[calc(100vh-357px)]'>
                 <div className="hero rounded-2xl lg:h-[800px]">
                     <div className="hero-content flex-col">
-                        <div className="text-center md:w-1/2" data-aos="zoom-in" data-aos-duration="1500">
+                        <div className="text-center md:w-1/2">
                             <h1 className="text-4xl md:text-5xl font-bold text-[#657a42]">Register now!</h1>
                             <p className="py-6 text-sm md:text-base text-[#44483b]">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
-                        <div data-aos="zoom-in" data-aos-duration="2000" className="card shrink-0 w-full max-w-sm md:w-1/2 shadow-2xl bg-base-100 border-2 border-[#657a42]">
+                        <div className="card shrink-0 w-full max-w-sm md:w-1/2 shadow-2xl bg-base-100 border-2 border-[#657a42]">
                             <form onSubmit={handleRegister} className="card-body">
                                 <div className="form-control">
                                     <label className="label">

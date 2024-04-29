@@ -8,7 +8,7 @@ const ViewDetails = () => {
     const currentSpot = useLoaderData();
 
     return (
-        <div className="mt-5 md:mt-14 px-1 md:px-0 container mx-auto">
+        <div className="mt-5 md:mt-14 mb-14 px-1 md:px-0 container mx-auto">
             <div className="card rounded-3xl border-4 border-[#617844] bg-white lg:card-side shadow-xl">
                 <figure className="w-full lg:w-1/2 h-[500px] md:h-[800px]"><img className="h-full w-full object-cover object-center" src={currentSpot.photo} alt="Album" /></figure>
                 <div className="flex items-center justify-center w-full lg:w-1/2">

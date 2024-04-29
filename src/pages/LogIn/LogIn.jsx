@@ -60,15 +60,15 @@ const LogIn = () => {
             })
     }
     return (
-        <div className="bg-cover mb-[67px] flex items-center bg-center bg-no-repeat min-h-screen w-full" style={{ backgroundImage: `url(${loginBG})` }}>
-            <div className='backdrop-blur-sm bg-base/30 w-full min-h-screen'>
+        <div className="bg-cover flex items-center bg-center bg-no-repeat min-h-[calc(100vh-357px)] w-full" style={{ backgroundImage: `url(${loginBG})` }}>
+            <div className='backdrop-blur-sm bg-base/30 w-full min-h-[calc(100vh-357px)]'>
                 <div className=" hero rounded-2xl md:h-[800px] ">
                     <div className="hero-content flex-col">
-                        <div className="text-center md:w-1/2" data-aos="zoom-in" data-aos-duration="1500">
+                        <div className="text-center md:w-1/2">
                             <h1 className="text-3xl md:text-5xl font-semibold md:font-bold text-[#657a42]">LogIn now!</h1>
                             <p className="py-6 text-[#44483b] text-sm md:text-base">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
-                        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-[#617844]" data-aos="zoom-in" data-aos-duration="2000">
+                        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-[#617844]">
                             <form onSubmit={handleSignIn} className="card-body">
                                 <div className="form-control text-xs md:text-base">
                                     <label className="label">

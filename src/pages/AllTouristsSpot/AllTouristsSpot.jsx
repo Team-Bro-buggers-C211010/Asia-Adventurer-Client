@@ -23,7 +23,7 @@ const AllTouristsSpot = () => {
         }
     }
     return (
-        <div className="mt-4 md:mt-8 px-1 md:px-0">
+        <div className="mt-4 md:mt-8 mb-14 px-1 md:px-0">
             <h1 className="text-[#8e9281] text-center text-lg md:text-4xl rounded-full font-bold bg-[#ccd7af] container mx-auto w-auto p-2 md:p-8"><span className="text-[#657a42]">Discover Southeast Asia:</span> Explore Top Tourist Destinations</h1>
             <div className="container mx-auto mb-20 flex justify-center items-center mt-5">
                 <select onChange={handleSort} className="select select-bordered w-full max-w-xs bg-[#657a42] text-white text-lg font-semibold">

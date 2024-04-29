@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <div className="font-Poppins">
-            <footer className="footer flex flex-col md:flex-row justify-around mt-14 p-10 bg-[#657a42] text-base-content border-y-2 border-t-white  rounded-t-lg border-base-100 ">
+            <footer className="footer flex flex-col md:flex-row justify-around p-10 bg-[#657a42] text-base-content border-y-2 border-t-white  rounded-t-lg border-base-100 ">
                 <aside>
                     <img className="w-20" src="https://i.ibb.co/h828BhN/NavLogo.png" alt="" />
-                    <p className="text-[#ccd7af] text-lg font-Roboto"><span className="text-xl font-bold font-Poppins">Asia Adventurer</span><br /> - Discover Asia: Your Ultimate Adventure Awaits</p>
+                    <p className="text-[#ccd7af] text-lg font-Roboto"><span className="text-2xl font-bold font-Poppins">Asia Adventurer</span><br /> - Discover Asia: Your Ultimate Adventure Awaits</p>
                 </aside>
                 <nav>
                     <h1 className="text-lg font-semibold">Contact Us - </h1>
