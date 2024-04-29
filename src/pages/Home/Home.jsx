@@ -3,6 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import HomeSpotCard from "../../components/HomeSpotCard/HomeSpotCard";
 import { useState } from "react";
 import LatestTravelNews from "../../components/LatestTravelNews/LatestTravelNews";
+import ContactUs from "../../components/ContactUs/ContactUs";
 
 const Home = () => {
     const allSpots = useLoaderData();
@@ -26,8 +27,8 @@ const Home = () => {
                     }
                 </div>
                 <LatestTravelNews></LatestTravelNews>
-                <div className="mt-10">
-                    
+                <div className="mt-14">
+                    <ContactUs></ContactUs>
                 </div>
             </div>
         </div>
