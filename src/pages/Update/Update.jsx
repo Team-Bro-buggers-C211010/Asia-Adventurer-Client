@@ -2,9 +2,9 @@ import { useLoaderData } from "react-router-dom";
 import update from "../../images/update.svg";
 import Swal from "sweetalert2";
 import { Bounce } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 const Update = () => {
     const currentData = useLoaderData();
-    console.log(currentData);
     const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
@@ -19,8 +19,6 @@ const Update = () => {
         const photo = form.photo.value;
 
         const updateSpot = { spotName, country, location, description, season, travelTime, avgCost, visitors, photo };
-        console.log(updateSpot);
-
         Swal.fire({
             title: "Are you sure to update it ?",
             text: "You won't be able to revert this!",
@@ -31,7 +29,7 @@ const Update = () => {
             confirmButtonText: "Yes, update it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/all-tourists-spot/${currentData._id}`, {
+                fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/${currentData._id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -62,6 +60,9 @@ const Update = () => {
     }
     return (
         <div className="container mx-auto mb-14 font-Poppins mt-4 md:mt-12 px-1 md:px-0 flex flex-col justify-center items-center">
+            <Helmet>
+                <title>{`${currentData.userName} | ${currentData.spotName} | Update Tourist Spot`}</title>
+            </Helmet>
             <div><img className="w-48 h-48" src={update} alt="" /></div>
             <form onSubmit={handleUpdate} className="card-body border-2 border[#8e9281] rounded-xl bg-[#ccd7af] border-base-content md:w-2/3 flex mx-auto">
                 <Bounce><h1 className="text-center text-xl mb-2 md:mb-4 md:text-3xl font-extrabold text-[#8e9281]">Update Your Tourists Spot</h1></Bounce>

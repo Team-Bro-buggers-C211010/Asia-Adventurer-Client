@@ -8,7 +8,7 @@ const ErrorPage = () => {
                 <p className="text-base md:text-2xl fontWorkSans text-red-300">The page you want,</p>
                 <p className="text-base md:text-2xl fontWorkSans text-red-300">Our <span className="text-red-500 text-xl">Habluu</span> Developer still trying to fixed it up.</p>
             </div>
-            <NavLink to="/" className="btn bg-transparent border border-[#82b440] hover:bg-[#82b440] text-[#82b440] hover:text-white">
+            <NavLink to="/" className="btn bg-transparent border border-[#617844] hover:bg-[#617844] text-[#617844] hover:text-white">
                 Go back to Home
             </NavLink>
         </div>

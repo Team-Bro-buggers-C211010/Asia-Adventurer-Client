@@ -4,11 +4,15 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { IoManOutline } from "react-icons/io5";
 import { TbWorld } from "react-icons/tb";
 import { FaChartArea } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 const ViewDetails = () => {
     const currentSpot = useLoaderData();
 
     return (
         <div className="mt-5 md:mt-14 mb-14 px-1 md:px-0 container mx-auto">
+            <Helmet>
+                <title>{`${currentSpot.country} | ${currentSpot.spotName}`}</title>
+            </Helmet>
             <div className="card rounded-3xl border-4 border-[#617844] bg-white lg:card-side shadow-xl">
                 <figure className="w-full lg:w-1/2 h-[500px] md:h-[800px]"><img className="h-full w-full object-cover object-center" src={currentSpot.photo} alt="Album" /></figure>
                 <div className="flex items-center justify-center w-full lg:w-1/2">

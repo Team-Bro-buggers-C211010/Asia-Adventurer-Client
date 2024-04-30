@@ -6,7 +6,6 @@ import { LuEyeOff } from "react-icons/lu";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import loginBG from "../../images/logIn.svg"
 import { AuthContext } from "../../Providers/AuthProvider";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
@@ -162,7 +161,7 @@ const LogIn = () => {
                                     delaySpeed={1500}
                                 />
                             </h1>
-                            <p className="py-6 text-[#44483b] text-sm md:text-base">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <p className="py-6 text-[#44483b] text-sm md:text-base">Welcome to our login page! Sign in securely with your username and password.</p>
                         </div>
                         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border-2 border-[#617844]">
                             <form onSubmit={handleSignIn} className="card-body">

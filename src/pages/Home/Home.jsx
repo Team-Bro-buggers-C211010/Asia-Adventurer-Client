@@ -6,11 +6,15 @@ import LatestTravelNews from "../../components/LatestTravelNews/LatestTravelNews
 import ContactUs from "../../components/ContactUs/ContactUs";
 import ContrySection from "../../components/CountrySection/ContrySection";
 import { Slide, Bounce } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 const Home = () => {
     const allSpots = useLoaderData();
     const [viewAll, setViewALL] = useState(false);
     return (
         <div className="mb-14">
+            <Helmet>
+                <title>Asia Adventurer | Home</title>
+            </Helmet>
             <Banner></Banner>
             <div className="mt-40 font-Poppins container mx-auto px-1 md:px-0">
                 <h1 className="text-center text-[#657a42] text-2xl md:text-4xl font-extrabold"><Bounce>Discover Top Tourist Destinations</Bounce></h1>

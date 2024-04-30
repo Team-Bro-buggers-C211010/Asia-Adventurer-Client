@@ -6,15 +6,15 @@ import myListBG from "../../images/myListBG.svg";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Rotate } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 const MyList = () => {
     const { user } = useContext(AuthContext);
     const [currentData, setCurrentData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/all-tourists-spot/${user.email}`)
+        fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setCurrentData(data);
-                console.log(currentData);
             })
     }, [])
 
@@ -29,7 +29,7 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/all-tourists-spot/${id}`, {
+                fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -57,6 +57,9 @@ const MyList = () => {
 
     return (
         <div className="min-h-screen font-Poppins bg-cover bg-no-repeat " style={{ backgroundImage: `url(${myListBG})` }}>
+            <Helmet>
+                <title>{`Asia Adventurer | ${user.displayName}`}</title>
+            </Helmet>
             <div className="backdrop-blur-sm bg-base/20 min-h-screen w-full">
                 <h1 className="text-lg md:text-3xl font-bold mt-5 md:mt-8 mb-5 text-[#8e9281] flex justify-center items-center gap-1"> Planner :<Rotate direction="right" triggerOnce="true"><span className="text-[#657a42]">{user.displayName}</span></Rotate></h1>
                 <div className="container mx-auto border-2 border-[#8e9281] bg-[#ccd7af] mb-14">

@@ -31,7 +31,7 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className='w-full'>
-                    <MapContainer className="h-72" center={position} zoom={14} scrollWheelZoom={true} >
+                    <MapContainer className="h-72 z-10" center={position} zoom={14} scrollWheelZoom={true} >
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:5000/all-tourists-spot"),
+                loader: () => fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot"),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: "/all-tourists-spot",
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch("http://localhost:5000/all-tourists-spot"),
+                loader: () => fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot"),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
@@ -52,19 +52,19 @@ const router = createBrowserRouter([
             {
                 path: "/update-spots/:id",
                 element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/all-tourists-spot/current-spot/${params.id}`),
+                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/current-spot/${params.id}`),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
                 path: "/spot-details/:id",
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/all-tourists-spot/current-spot/${params.id}`),
+                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/current-spot/${params.id}`),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
                 path: "/tourists-spot/:countryName",
                 element: <PrivateRoutes><CountryPage></CountryPage></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/tourists-country/${params.countryName}`),
+                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/tourists-country/${params.countryName}`),
                 errorElement: <ErrorPage></ErrorPage>,
             }
         ]

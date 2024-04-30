@@ -131,7 +131,7 @@ export default function Banner() {
                     <span ref={progressContent}></span>
                 </div>
             </Swiper>
-            <div className='absolute z-10 h-44 md:h-56 w-44 md:w-56 p-5 -bottom-28 rounded-full border-2 border-[#657a42] bg-[#ccd7af] flex justify-center items-center shadow-lg'>
+            <div className='absolute z-10 h-[12rem] md:h-56 w-[12rem] md:w-56 p-5 -bottom-28 rounded-full border-2 border-[#657a42] bg-[#ccd7af] flex justify-center items-center shadow-lg'>
                 <p className='text-center text-base md:text-xl text-[#657a42] font-bold font-Poppins'>
                     <Typewriter
                         words={['Traveling', 'Journeying', 'Exploring']}

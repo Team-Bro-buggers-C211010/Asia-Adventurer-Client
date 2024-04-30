@@ -101,7 +101,7 @@ const Register = () => {
                                     delaySpeed={1500}
                                 />
                             </h1>
-                            <p className="py-6 text-sm md:text-base text-[#44483b]">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <p className="py-6 text-sm md:text-base text-[#44483b]">Welcome to our registration page! Join our platform by creating your account. Fill in your details to get started.</p>
                         </div>
                         <div className="card shrink-0 w-full max-w-sm md:w-1/2 shadow-2xl bg-base-100 border-2 border-[#657a42]">
                             <form onSubmit={handleRegister} className="card-body">
