@@ -1,10 +1,25 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TouristsCountryCard from "../../components/TouristsCountryCard/TouristsCountryCard";
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
 
 const CountryPage = () => {
     const { countryName } = useParams();
-    const touristSpots = useLoaderData();
+
+    const [loading, setLoading] = useState(true);
+    const [touristSpots, setTouristSpots] = useState([]);
+    useEffect(() => {
+        fetch(`https://asia-adventurer-server.vercel.app/tourists-country/${countryName}`)
+        .then(res => res.json())
+        .then(data => {
+            setTouristSpots(data);
+            setLoading(false);
+        })
+    }, [])
+    if(loading) {
+        return <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg min-h-screen"></span></div>;
+    }
+
     return (
         <div className="mt-4 md:mt-8 mb-14 px-1 md:px-0">
             <Helmet>

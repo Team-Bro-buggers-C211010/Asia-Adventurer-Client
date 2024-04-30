@@ -20,7 +20,6 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot"),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
@@ -36,7 +35,6 @@ const router = createBrowserRouter([
             {
                 path: "/all-tourists-spot",
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot"),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
@@ -52,19 +50,16 @@ const router = createBrowserRouter([
             {
                 path: "/update-spots/:id",
                 element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/current-spot/${params.id}`),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
                 path: "/spot-details/:id",
                 element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/current-spot/${params.id}`),
                 errorElement: <ErrorPage></ErrorPage>,
             },
             {
                 path: "/tourists-spot/:countryName",
                 element: <PrivateRoutes><CountryPage></CountryPage></PrivateRoutes>,
-                loader: ({params}) => fetch(`https://asia-adventurer-server.vercel.app/tourists-country/${params.countryName}`),
                 errorElement: <ErrorPage></ErrorPage>,
             }
         ]

@@ -1,15 +1,29 @@
-import { useLoaderData } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
 import HomeSpotCard from "../../components/HomeSpotCard/HomeSpotCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LatestTravelNews from "../../components/LatestTravelNews/LatestTravelNews";
 import ContactUs from "../../components/ContactUs/ContactUs";
 import ContrySection from "../../components/CountrySection/ContrySection";
 import { Slide, Bounce } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 const Home = () => {
-    const allSpots = useLoaderData();
+    // const allSpots = useLoaderData();
     const [viewAll, setViewALL] = useState(false);
+
+    const [loading, setLoading] = useState(true);
+    const [allSpots, setAllSpots] = useState([]);
+    useEffect(() => {
+        fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot")
+        .then(res => res.json())
+        .then(data => {
+            setAllSpots(data);
+            setLoading(false);
+        })
+    }, [])
+    if(loading) {
+        return <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg min-h-screen"></span></div>;
+    }
+
     return (
         <div className="mb-14">
             <Helmet>

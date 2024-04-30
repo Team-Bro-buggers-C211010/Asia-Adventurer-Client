@@ -15,7 +15,7 @@ const LogIn = () => {
     const naviGate = useNavigate();
     const location = useLocation();
     const [eyeCheck, setEyeCheck] = useState(false);
-    const { signInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { signInUser, signInWithGoogle, signInWithGithub, setLoading } = useContext(AuthContext);
     const handleSignIn = e => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -55,6 +55,7 @@ const LogIn = () => {
                 });
             })
             .catch(err => {
+                setLoading(false);
                 toast.error("Invalid Email or Password !!!");
             })
     }
@@ -82,6 +83,7 @@ const LogIn = () => {
                 });
             })
             .catch(err => {
+                setLoading(false);
                 let timerInterval;
                 Swal.fire({
                     title: err.message,
@@ -125,6 +127,7 @@ const LogIn = () => {
                 });
             })
             .catch(err => {
+                setLoading(false);
                 let timerInterval;
                 Swal.fire({
                     title: err.message,

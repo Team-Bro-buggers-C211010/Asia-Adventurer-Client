@@ -1,10 +1,25 @@
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import update from "../../images/update.svg";
 import Swal from "sweetalert2";
 import { Bounce } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
 const Update = () => {
-    const currentData = useLoaderData();
+    const {id} = useParams();
+    const [loading, setLoading] = useState(true);
+    const [currentData, setCurrentData] = useState([]);
+    useEffect(() => {
+        fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/current-spot/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            setCurrentData(data);
+            setLoading(false);
+        })
+    }, [])
+    if(loading) {
+        return <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg min-h-screen"></span></div>;
+    }
+
     const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;

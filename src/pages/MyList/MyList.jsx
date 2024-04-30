@@ -10,13 +10,21 @@ import { Helmet } from "react-helmet";
 const MyList = () => {
     const { user } = useContext(AuthContext);
     const [currentData, setCurrentData] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch(`https://asia-adventurer-server.vercel.app/all-tourists-spot/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setCurrentData(data);
+                setLoading(false);
             })
     }, [])
+
+    if(loading) {
+        return <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg min-h-screen"></span></div>;
+    }
 
     const handleDelete = id => {
         Swal.fire({

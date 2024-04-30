@@ -1,11 +1,22 @@
-import { useLoaderData } from "react-router-dom";
 import TouristSpotCard from "../../components/TouristSpotCard/TouristSpotCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
 const AllTouristsSpot = () => {
-    const allTouristSpot = useLoaderData();
-    const [allSpots, setAllSpots] = useState(allTouristSpot);
+
+    const [loading, setLoading] = useState(true);
+    const [allSpots, setAllSpots] = useState([]);
+    useEffect(() => {
+        fetch("https://asia-adventurer-server.vercel.app/all-tourists-spot")
+        .then(res => res.json())
+        .then(data => {
+            setAllSpots(data);
+            setLoading(false);
+        })
+    }, [])
+    if(loading) {
+        return <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg min-h-screen"></span></div>;
+    }
 
     const handleSort = e => {
         const sortType = e.target.value;

@@ -90,6 +90,8 @@ const Navbar = () => {
                         {navLinks}
                         <div className="inline-block md:hidden mt-1">
                             {
+                                loading ? <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg"></span></div>
+                                :
                                 user ? <NavLink onClick={handleLogOut} to="/login" className="btn text-xs text-white bg-[#617844] rounded-full hover:border hover:border-[#617844] hover:text-[#617844] hover:bg-transparent">Log Out</NavLink>
                                     :
                                     <>
@@ -109,6 +111,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-end hidden md:flex gap-x-1">
                 {
+                    loading ? <div className="flex justify-center items-center text-[#ccd7af]"><span className="loading loading-bars loading-lg"></span></div>
+                    :
                     user ? <>
                         <NavLink to="/my-list" className="dropdown dropdown-end hover:tooltip hover:tooltip-open hover:tooltip-bottom hover:tooltip-success" data-tip={user.displayName}>
                             <div tabIndex={0} role="button" className="btn bg-transparent btn-circle hover:border hover:border-[#617844] avatar" >
